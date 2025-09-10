@@ -1,0 +1,60 @@
+/* 게시판 리스트 스타일 */
+.board-list-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .board-list-container h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .board-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .board-table thead {
+    background-color: #f8f9fa;
+  }
+  
+  .board-table th {
+    padding: 15px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .board-table td {
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+    color: #495057;
+  }
+  
+  .board-table tbody tr:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+  }
+  
+  .board-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .board-table {
+      font-size: 14px;
+    }
+    
+    .board-table th,
+    .board-table td {
+      padding: 8px 6px;
+    }
+  }

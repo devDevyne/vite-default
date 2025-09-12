@@ -1,13 +1,10 @@
-import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
 
 // 게시물 리스트 조회
 export const getBoardList = async () => {
-  // API 엔드포인트 주소
-  const API_URL = "/api/boards"; 
-
   try {
     // axios를 사용해 GET 방식으로 API에 요청을 보냅니다.
-    const response = await axios.get(API_URL);
+    const response = await axiosInstance.get("/board/list");
     // 요청 성공 시, 서버가 보낸 실제 데이터(response.data)를 반환합니다.
     return response.data;
   } catch (error) {

@@ -4,4 +4,13 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://193.123.227.177:8001', // 백엔드 서버 주소
+        changeOrigin: true,
+        secure: false,
+      },
+    }
+  }
 })

@@ -11,8 +11,8 @@ const BoardList = () => {
     const fetchBoardList = async () => {
         try {
             // API를 호출해 데이터를 받아옴
-            const data = await getBoardList();
-            setBoardList(data);
+            const response = await getBoardList();
+            setBoardList(response.data);
         } catch (error) {
             //TODO: alert 
             console.error("게시물 목록을 가져오는 중 에러 발생:", error);
@@ -40,11 +40,11 @@ const BoardList = () => {
                     {boardList.length > 0 ? (
                         // 배열에 항목이 있으면 map 함수로 각 항목을 <tr>로 변환
                         boardList.map(board => (
-                            <tr key={board.id}>
-                                <td>{board.id}</td>
+                            <tr key={board.bbs_id}>
+                                <td>{board.bbs_id}</td>
                                 <td>{board.title}</td>
-                                <td>{board.author}</td>
-                                <td>{board.createdAt}</td>
+                                <td>{board.writer}</td>
+                                <td>{board.mod_date}</td>
                             </tr>
                         ))
                     ) : (

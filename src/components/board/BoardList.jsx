@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getBoardList } from '../../services/boardapi';
 import "./board.css";
 
@@ -6,6 +7,7 @@ import "./board.css";
 const BoardList = () => {
 
     const [boardList, setBoardList] = useState([]);
+    const navigate = useNavigate();
 
     // 게시물 목록을 조회해 상태를 업데이트
     const fetchBoardList = async () => {
@@ -19,13 +21,26 @@ const BoardList = () => {
         }
     }
 
+    // 게시물 상세정보 페이지로 이동
+    const goToBoardDetail = (bbs_id) => {
+        navigate(`/boardDetail?bbs_id=${bbs_id}`);
+    } 
+    
+    // 게시물 등록 페이지로 이동 
+    const goToRegister = () => {
+        navigate('/boardRegister');
+    }
+    
     useEffect(() => {
         fetchBoardList();
     }, []); // 의존성 배열을 비워둬 처음 렌더링 시에만 실행됨. 
 
     return (
         <div className="board-list-container">
-            <h2>게시판</h2>
+            <div className='board-header'>
+                <h2>게시판</h2>
+                <button className='register-btn' onClick={()=>goToRegister()}>등록</button>
+            </div>
             <table className="board-table">
                 <thead>
                     <tr>
@@ -36,13 +51,15 @@ const BoardList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* 게시물 리스트 데이터가 위치할 곳 */}
                     {boardList.length > 0 ? (
                         // 배열에 항목이 있으면 map 함수로 각 항목을 <tr>로 변환
-                        boardList.map(board => (
+                        boardList.map((board, index) => (
                             <tr key={board.bbs_id}>
-                                <td>{board.bbs_id}</td>
-                                <td>{board.title}</td>
+                                <td>{boardList.length - index}</td>
+                                <td onClick={ () => goToBoardDetail(board.bbs_id)} 
+                                    className='text-left' style={{ cursor: 'pointer' }}>
+                                    {board.title}
+                                </td>
                                 <td>{board.writer}</td>
                                 <td>{board.mod_date}</td>
                             </tr>

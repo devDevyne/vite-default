@@ -9,7 +9,6 @@ export default defineConfig({
       '/api': {
         target: 'http://193.123.227.177:8001', // 백엔드 서버 주소
         changeOrigin: true,
-        secure: false,
       },
     }
   }

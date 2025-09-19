@@ -57,8 +57,26 @@ const BoardForm = () => {
                 />
             </div>
             
-            
-            
+            <div className="form-group">
+                <label>등록일</label>
+                <span className="display-date">{currentDate}</span>
+            </div>
+
+            <div className="form-group">
+                <label htmlFor="content">내용</label>
+                <textarea
+                    id="content"
+                    name="content"
+                    rows="15"
+                    value={boardInfo.content}
+                    placeholder="내용을 입력하세요"
+                ></textarea>
+            </div>
+
+            <div className="form-actions">
+                <button type="button" className="submit-btn">저장하기</button>
+                <button type="button" className="cancel-btn">취소</button>
+            </div>
             
         </div>
     );

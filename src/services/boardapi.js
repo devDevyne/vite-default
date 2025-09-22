@@ -27,3 +27,34 @@ export const getBoardDetail = async (bbs_id) => {
   }
   
 }
+
+
+/**
+ * 게시물 등록
+ * @param boardInfo 
+ */
+export const insBoardInfo = async (boardInfo) => {
+  
+  try {
+    const response = await axiosInstance.post("/board/insert", boardInfo);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+/**
+ * 게시물 수정/삭제
+ * @param type
+ * @param boardInfo
+ */
+export const udtBoardInfo = async (boardInfo) => {
+
+  try {
+    const response = await axiosInstance.put("/board/update", boardInfo);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+  
+}

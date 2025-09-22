@@ -162,3 +162,123 @@
 .register-btn:hover {
   background-color: #0056b3;
 }
+
+/* 폼 전체를 감싸는 컨테이너 */
+.board-form-container {
+  max-width: 768px; /* 폼의 최대 너비 설정 */
+  margin: 40px auto; /* 페이지 중앙 정렬 */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 입체감을 주는 그림자 효과 */
+  background-color: #ffffff;
+}
+
+/* 폼 제목 (h2 태그) */
+.board-form-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* 각 입력 필드를 묶는 그룹 */
+.form-group {
+  display: flex; /* 라벨과 입력창을 가로로 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  margin-bottom: 20px;
+}
+
+/* 라벨 공통 스타일 */
+.form-group label {
+  width: 100px; /* 모든 라벨의 너비를 고정하여 입력창 시작점 정렬 */
+  font-weight: bold;
+  font-size: 16px;
+  color: #555; /* 라벨 글자색 */
+}
+
+/* 텍스트 입력창 (input) */
+.form-group input[type="text"] {
+  flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+/* 내용(textarea)을 위한 스타일 재정의 */
+.form-group textarea {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  resize: vertical; /* 세로로만 크기 조절 가능 */
+  width: 333px;
+}
+
+/* '내용' 라벨은 입력창 위로 올리기 */
+.form-group:has(textarea) {
+  flex-direction: column; /* 세로 방향으로 변경 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+}
+
+.form-group:has(textarea) label {
+  width: auto; /* 고정 너비 해제 */
+  margin-bottom: 8px;
+}
+
+
+/* 자동으로 표시되는 날짜 스타일 */
+.display-date {
+  font-size: 16px;
+  color: #333;
+}
+
+/* 버튼들을 감싸는 영역 */
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* 버튼들을 오른쪽으로 정렬 */
+  gap: 10px; /* 버튼 사이의 간격 */
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee; /* 상단 구분선 */
+}
+
+/* 버튼 공통 스타일 */
+.form-actions button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* 저장 버튼 */
+.submit-btn {
+  background-color: #007bff;
+}
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 취소 버튼 */
+.cancel-btn {
+  background-color: #6c757d;
+}
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+/* 삭제 버튼 */
+.delete-btn {
+  background-color: #dc3545; 
+}
+.delete-btn:hover {
+  background-color: #c82333; 
+}
